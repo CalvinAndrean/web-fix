@@ -219,7 +219,7 @@ export default{
             this.dialogShowDeposit = false;
         },
         checkDepoClass(item){
-            axios.get("http://127.0.0.1:8000/api/deposit_classes/" + item.id_member)
+            axios.get("http://calvin.ppcdeveloper.com/api/deposit_classes/" + item.id_member)
             .then((response) => {
                 this.showDepositClass = response.data.data;
                 this.duration = response.data.data.duration;
@@ -230,7 +230,7 @@ export default{
             this.dialogShowDeposit = true;
         },
         getClassPromoDetails(){
-            axios.get("http://127.0.0.1:8000/api/class_promos/" + this.id_class_promo)
+            axios.get("http://calvin.ppcdeveloper.com/api/class_promos/" + this.id_class_promo)
             .then((response) => {
                 this.class_promo_details = response.data.data;
                 console.log("INFOOOOOOOOOOOOOO");
@@ -240,7 +240,7 @@ export default{
             });
         },
         getClassPromo(){
-            axios.get("http://127.0.0.1:8000/api/class_promos/")
+            axios.get("http://calvin.ppcdeveloper.com/api/class_promos/")
             .then((response) => {
                 this.class_promo = response.data.data;
                 console.log(this.class_promo);
@@ -249,7 +249,7 @@ export default{
             });
         },
         showReport(item){
-            axios.get("http://127.0.0.1:8000/api/deposit_class_reports/" + item.id_member)
+            axios.get("http://calvin.ppcdeveloper.com/api/deposit_class_reports/" + item.id_member)
             .then((response) => {
                 this.deposit_class = response.data.data;
                 console.log(this.deposit_class);
@@ -267,7 +267,7 @@ export default{
         //     let id_class_promo = this.formDepo.id_class_promo;
         //     this.id_class_promo = this.formDepo.id_class_promo;
         //     this.getClassPromoDetails();
-        //     axios.post("http://127.0.0.1:8000/api/deposit_class_reports/" + this.id_member, {
+        //     axios.post("http://calvin.ppcdeveloper.com/api/deposit_class_reports/" + this.id_member, {
         //         id_pegawai: id_pegawai,
         //         id_class_promo: id_class_promo,
         //     }).then((response) => {
@@ -281,7 +281,7 @@ export default{
         //     let expired_date = new Date();
         //     expired_date.setMonth(expired_date.getMonth() + this.duration);
         //     expired_date = expired_date.toJSON().slice(0,10);
-        //     axios.put("http://127.0.0.1:8000/api/deposit_class_reports/" + this.id_member, {
+        //     axios.put("http://calvin.ppcdeveloper.com/api/deposit_class_reports/" + this.id_member, {
         //         expired_date: expired_date
         //     }).then((response) => {
         //         console.log("Berhasil ubah expired date");
@@ -295,7 +295,7 @@ export default{
         //     let id_class = this.class_promo_details.id_class;
         //     let total_amount = this.class_promo_details.amount_deposit + this.class_promo_details.bonus;
         //     // let expired_date = new Date().setMonth(new Date().getMonth() + this.class_promo_details.duration);
-        //     axios.post("http://127.0.0.1:8000/api/deposit_classes/" + this.id_member, {
+        //     axios.post("http://calvin.ppcdeveloper.com/api/deposit_classes/" + this.id_member, {
         //         id_member: id_member,
         //         id_class: id_class,
         //         total_amount: total_amount,
@@ -317,7 +317,7 @@ export default{
             this.id_class_promo = this.formDepo.id_class_promo;
             let id_class = this.class_promo_details.id_class;
             this.getClassPromoDetails();
-            axios.post("http://127.0.0.1:8000/api/deposit_class_reports/" + this.id_member, {
+            axios.post("http://calvin.ppcdeveloper.com/api/deposit_class_reports/" + this.id_member, {
                 id_pegawai: id_pegawai,
                 id_class_promo: id_class_promo,
                 id_class: id_class,
@@ -333,7 +333,7 @@ export default{
                 let expired_date = new Date();
                 expired_date.setMonth(expired_date.getMonth() + this.class_promo_details.duration);
                 expired_date = expired_date.toJSON().slice(0,10);
-                axios.post("http://127.0.0.1:8000/api/deposit_classes/" + this.id_member, {
+                axios.post("http://calvin.ppcdeveloper.com/api/deposit_classes/" + this.id_member, {
                     id_member: id_member,
                     id_class: id_class,
                     total_amount: total_amount,
@@ -343,7 +343,7 @@ export default{
                     let expired_date = new Date();
                     expired_date.setMonth(expired_date.getMonth() + this.class_promo_details.duration);
                     expired_date = expired_date.toJSON().slice(0,10);
-                    axios.put("http://127.0.0.1:8000/api/deposit_class_reports/" + this.id_member, {
+                    axios.put("http://calvin.ppcdeveloper.com/api/deposit_class_reports/" + this.id_member, {
                         expired_date: expired_date,
                     }).then((response) => {
                         console.log("Berhasil ubah expired date");
@@ -371,7 +371,7 @@ export default{
             this.dialogDepo = false;
         },
         getMembers(){
-            axios.get("http://127.0.0.1:8000/api" + "/members", {
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/members", {
             }).then((response) => {
                 this.members = response.data.data;
             }).catch((error) => {
@@ -384,7 +384,7 @@ export default{
             this.dialog = true;
         },
         cetakReport(item){
-            axios.get("http://127.0.0.1:8000/api/deposit_class_reports/printReport/" + item.report_number_class_deposit, {
+            axios.get("http://calvin.ppcdeveloper.com/api/deposit_class_reports/printReport/" + item.report_number_class_deposit, {
             }).then((response) => {
                 console.log(response);
                 console.log('Print report');
@@ -393,7 +393,7 @@ export default{
             });
         },
         getDepositClassReport(){
-            axios.get("http://127.0.0.1:8000/api" + "/deposit_class_reports")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/deposit_class_reports")
             .then((response) => {
                 this.deposit_class = response.data.data;
                 console.log(this.deposit_cash);
@@ -403,7 +403,7 @@ export default{
         },
         save() {
             // let amount_deposit = this.formDepo.amount_deposit;
-            // axios.post("http://127.0.0.1:8000/api" + "/deposit_cash_reports", {
+            // axios.post("http://calvin.ppcdeveloper.com/api" + "/deposit_cash_reports", {
             //     amount_deposit: amount_deposit
             // }).then((response) => {
             //     console.log(response)

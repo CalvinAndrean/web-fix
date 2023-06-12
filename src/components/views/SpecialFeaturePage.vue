@@ -155,7 +155,7 @@ export default{
     },
     methods: {
         confirmResetLate(){
-            axios.put("http://127.0.0.1:8000/api/instructors/resetTotalLate/1", {
+            axios.put("http://calvin.ppcdeveloper.com/api/instructors/resetTotalLate/1", {
             }).then((response) => {
                 console.log(response)
                 this.snackbar.show = true;
@@ -179,7 +179,7 @@ export default{
         },
 
         confirmDeactivate(){
-            axios.put("http://127.0.0.1:8000/api/members/deactivated/" + this.id_member, {
+            axios.put("http://calvin.ppcdeveloper.com/api/members/deactivated/" + this.id_member, {
             }).then((response) => {
                 console.log(response);
                 this.snackbar.show = true;
@@ -197,7 +197,7 @@ export default{
             this.dialogDeactivate = false;
         },
         getMembers(){
-            axios.get("http://127.0.0.1:8000/api" + "/members/showExpired/" + this.id_member)
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/members/showExpired/" + this.id_member)
             .then((response) => {
                 this.members = response.data.data;
                 console.log(this.members)
@@ -206,7 +206,7 @@ export default{
             });
         },
         getDepositClass(){
-            axios.get("http://127.0.0.1:8000/api" + "/deposit_classes/showExpired/" + this.id_deposit_class)
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/deposit_classes/showExpired/" + this.id_deposit_class)
             .then((response) => {
                 this.deposit_classes = response.data.data;
                 console.log(this.members)
@@ -219,7 +219,7 @@ export default{
             this.$nextTick(() => { this.delete = -1 })
         },
         confirmReset(){
-            axios.put("http://127.0.0.1:8000/api" + "/deposit_classes/resetDepositClass/" + this.id_deposit_class)
+            axios.put("http://calvin.ppcdeveloper.com/api" + "/deposit_classes/resetDepositClass/" + this.id_deposit_class)
             .then((response) => {
                 console.log(response);
                 this.snackbar.show = true;

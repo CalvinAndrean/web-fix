@@ -195,7 +195,7 @@ export default{
     },
     methods: {
         getInstructors(){
-            axios.get("http://127.0.0.1:8000/api" + "/instructors")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/instructors")
             .then((response) => {
                 this.instructors = response.data.data;
             }).catch((error) => {
@@ -203,7 +203,7 @@ export default{
             });
         },
         getClassRunningDailies(){
-            axios.get("http://127.0.0.1:8000/api" + "/class_running_dailiesAbsent")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/class_running_dailiesAbsent")
             .then((response) => {
                 this.class_running_dailies = response.data.data;
                 console.log(response.data.data);
@@ -217,7 +217,7 @@ export default{
             let id_class_running_daily = this.formAbsent.id_class_running_daily;
             let reason = this.formAbsent.reason;
             let id_substitute_instructor = this.formAbsent.id_substitute_instructor;
-            axios.post("http://127.0.0.1:8000/api" + "/instructor_absents", {
+            axios.post("http://calvin.ppcdeveloper.com/api" + "/instructor_absents", {
                 id_instructor: id_instructor,
                 id_class_running_daily: id_class_running_daily,
                 reason: reason,
@@ -266,7 +266,7 @@ export default{
         },
         confirm(){
             let is_confirmed = this.formAbsent.is_confirmed;
-            axios.put("http://127.0.0.1:8000/api/instructor_absents/" + this.id_absent, {
+            axios.put("http://calvin.ppcdeveloper.com/api/instructor_absents/" + this.id_absent, {
                 is_confirmed: is_confirmed
             }).then((response) => {
                 console.log(response)
@@ -294,7 +294,7 @@ export default{
             this.dialogConfirm = false;
         },
         getInstructorAbsent(){
-            axios.get("http://127.0.0.1:8000/api" + "/instructor_absents")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/instructor_absents")
             .then((response) => {
                 this.instructor_absents = response.data.data;
                 console.log(this.instructor_absents);

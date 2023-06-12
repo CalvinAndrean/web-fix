@@ -103,7 +103,7 @@ export default{
     },
     methods: {
         getGymBooking(){
-            axios.get("http://127.0.0.1:8000/api/gym_bookings")
+            axios.get("http://calvin.ppcdeveloper.com/api/gym_bookings")
             .then((response) => {
                 this.gym_bookings = response.data.data;
                 console.log(this.gym_bookings);
@@ -128,7 +128,7 @@ export default{
             this.dialog = false;
         },
         confirmPresensi(){
-            axios.put("http://127.0.0.1:8000/api/gym_bookings/" + this.id_gym_booking, {
+            axios.put("http://calvin.ppcdeveloper.com/api/gym_bookings/" + this.id_gym_booking, {
             }).then((response) => {
                 console.log(response)
                 this.snackbar.show = true;
@@ -149,7 +149,7 @@ export default{
             this.dialog = false;
         },
         cetakReport(item){
-            axios.get("http://127.0.0.1:8000/api/gym_bookings/printReport/" + item.id_gym_booking, {
+            axios.get("http://calvin.ppcdeveloper.com/api/gym_bookings/printReport/" + item.id_gym_booking, {
             }).then((response) => {
                 console.log(response);
                 console.log('Print report');

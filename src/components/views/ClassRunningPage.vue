@@ -241,7 +241,7 @@ export default{
     },
     methods: {
         getInstructors(){
-            axios.get("http://127.0.0.1:8000/api" + "/instructors")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/instructors")
             .then((response) => {
                 this.instructors = response.data.data;
                 console.log(this.instructors)
@@ -250,7 +250,7 @@ export default{
             });
         },
         getClassDetails(){
-            axios.get("http://127.0.0.1:8000/api" + "/class_details")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/class_details")
             .then((response) => {
                 this.class_details = response.data.data;
                 console.log(this.class_details)
@@ -259,7 +259,7 @@ export default{
             });
         },
         getClassRunning(){
-            axios.get("http://127.0.0.1:8000/api" + "/class_runnings")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/class_runnings")
             .then((response) => {
                 this.class_running = response.data.data;
                 console.log(this.class_running)
@@ -274,7 +274,7 @@ export default{
             let end_time = this.formClassRunning.end_time;
             let slot = this.formClassRunning.slot;
             let day = this.formClassRunning.day;
-            axios.post("http://127.0.0.1:8000/api" + "/class_runnings", {
+            axios.post("http://calvin.ppcdeveloper.com/api" + "/class_runnings", {
                 id_instructor: id_instructor,
                 id_class: id_class,
                 start_time: start_time,
@@ -315,7 +315,7 @@ export default{
             let end_time = this.formEdit.end_time;
             let slot = this.formEdit.slot;
             let day = this.formEdit.day;
-            axios.put("http://127.0.0.1:8000/api/class_runnings/" + this.id_class_running_edit, {
+            axios.put("http://calvin.ppcdeveloper.com/api/class_runnings/" + this.id_class_running_edit, {
                 id_instructor: id_instructor,
                 id_class: id_class,
                 start_time: start_time,
@@ -388,7 +388,7 @@ export default{
 
         confirmDelete(){
             this.class_running.splice(this.id_class_running_splice, 1)
-            axios.delete("http://127.0.0.1:8000/api/class_runnings/" + this.id_class_running_delete)
+            axios.delete("http://calvin.ppcdeveloper.com/api/class_runnings/" + this.id_class_running_delete)
             this.cancelDelete()
         },
     },

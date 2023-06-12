@@ -171,7 +171,7 @@ export default{
         },
         showReport(item){
             // this.$router.push({ path: '/show_activation_report', params: { id: item.id_member}});
-            axios.get("http://127.0.0.1:8000/api/activation_reports/" + item.id_member)
+            axios.get("http://calvin.ppcdeveloper.com/api/activation_reports/" + item.id_member)
             .then((response) => {
                 this.activation_reports = response.data.data;
                 console.log(this.activation_reports);
@@ -191,7 +191,7 @@ export default{
                 let expired_date = date;
                 expired_date.setFullYear(expired_date.getFullYear() + 1);
                 expired_date = expired_date.toJSON().slice(0,10);
-                axios.post("http://127.0.0.1:8000/api/activation_reports/" + this.id_member, {
+                axios.post("http://calvin.ppcdeveloper.com/api/activation_reports/" + this.id_member, {
                     id_member: this.id_member,
                     id_pegawai: id_pegawai,
                     datetime: datetime,
@@ -215,7 +215,7 @@ export default{
                     // this.snackbar.message = error.response.data.message;
                 });
 
-                axios.put("http://127.0.0.1:8000/api/members/changeExpired/" + this.id_member, {
+                axios.put("http://calvin.ppcdeveloper.com/api/members/changeExpired/" + this.id_member, {
                     expired_date: expired_date,
                 }).then((response) => {
                     console.log(response)
@@ -233,7 +233,7 @@ export default{
             this.dialogActivate = false;
         },
         getMembers(){
-            axios.get("http://127.0.0.1:8000/api" + "/members", {
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/members", {
             }).then((response) => {
                 this.members = response.data.data;
                 if(this.members.expired_date >= new Date().toJSON().slice(0,10)){
@@ -252,7 +252,7 @@ export default{
         },
         cetakReport(item){
             if(item.expired_date != null){
-                axios.get("http://127.0.0.1:8000/api/activation_reports/printReport/" + item.id_member, {
+                axios.get("http://calvin.ppcdeveloper.com/api/activation_reports/printReport/" + item.id_member, {
                 }).then((response) => {
                     console.log(response);
                     console.log('Print report');
@@ -264,7 +264,7 @@ export default{
             }
         },
         getActivationReport(){
-            axios.get("http://127.0.0.1:8000/api" + "/activation_reports")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/activation_reports")
             .then((response) => {
                 this.activation_reports = response.data.data;
                 console.log(this.activation_reports);
@@ -277,7 +277,7 @@ export default{
             let id_pegawai = this.formActivation.id_pegawai;
             let datetime = this.formActivation.datetime;
             let expired_date = this.formActivation.expired_date;
-            axios.post("http://127.0.0.1:8000/api" + "/activation_reports", {
+            axios.post("http://calvin.ppcdeveloper.com/api" + "/activation_reports", {
                 id_member: id_member,
                 id_pegawai: id_pegawai,
                 datetime: datetime,

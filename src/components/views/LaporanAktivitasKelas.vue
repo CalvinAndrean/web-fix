@@ -107,7 +107,7 @@ export default{
             this.dialog = false;
         },
         getLaporanAktivitasKelas(){
-            axios.get("http://127.0.0.1:8000/api" + "/laporan_aktivitas_kelas")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_aktivitas_kelas")
             .then((response) => {
                 this.laporan_aktivitas_kelas = response.data.data;
                 console.log(this.laporan_pendapatan_tahunan)
@@ -116,7 +116,7 @@ export default{
             });
         },
         getData(item){
-            axios.get("http://127.0.0.1:8000/api" + "/laporan_aktivitas_kelas/" + item.id_laporan_aktivitas_kelas)
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_aktivitas_kelas/" + item.id_laporan_aktivitas_kelas)
             .then((response) => {
                 this.data_laporan = response.data.data;
                 console.log(this.data_laporan)

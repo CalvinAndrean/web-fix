@@ -75,7 +75,7 @@ export default{
     },
     methods: {
         getMembers(){
-            axios.get("http://127.0.0.1:8000/api" + "/members", {
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/members", {
             }).then((response) => {
                 this.members = response.data.data;
             }).catch((error) => {
@@ -84,7 +84,7 @@ export default{
         },
         cetakReport(item){
             if(item.expired_date != null){
-                axios.get("http://127.0.0.1:8000/api/activation_reports/" + item.id_member, {
+                axios.get("http://calvin.ppcdeveloper.com/api/activation_reports/" + item.id_member, {
                 }).then((response) => {
                     console.log(response);
                     console.log('Print report');
@@ -96,7 +96,7 @@ export default{
             }
         },
         getActivationReport(){
-            axios.get("http://127.0.0.1:8000/api" + "/activation_reports")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/activation_reports")
             .then((response) => {
                 this.activation_reports = response.data.data;
                 console.log(this.activation_reports);

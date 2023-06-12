@@ -179,7 +179,7 @@ export default{
     methods: {
         confirmSaveEdit(){
             let status = this.formEdit.status;
-            axios.put("http://127.0.0.1:8000/api/class_running_dailies/" + this.id_class_daily_edit, {
+            axios.put("http://calvin.ppcdeveloper.com/api/class_running_dailies/" + this.id_class_daily_edit, {
                 status: status,
             }).then((response) => {
                 console.log(response)
@@ -209,7 +209,7 @@ export default{
             this.$nextTick(() => { this.edit = -1 })
         },
         getInstructors(){
-            axios.get("http://127.0.0.1:8000/api" + "/instructors")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/instructors")
             .then((response) => {
                 this.instructors = response.data.data;
                 console.log(this.instructors)
@@ -218,7 +218,7 @@ export default{
             });
         },
         getClassRunning(){
-            axios.get("http://127.0.0.1:8000/api" + "/class_runnings")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/class_runnings")
             .then((response) => {
                 this.class_running = response.data.data;
                 console.log(this.class_running)
@@ -227,7 +227,7 @@ export default{
             });
         },
         generate(){
-            axios.post("http://127.0.0.1:8000/api" + "/class_running_dailies").then((response) => {
+            axios.post("http://calvin.ppcdeveloper.com/api" + "/class_running_dailies").then((response) => {
                 console.log(response)
                 //reset
 
@@ -247,7 +247,7 @@ export default{
             });
         },
         getClassDaily(){
-            axios.get("http://127.0.0.1:8000/api" + "/class_running_dailies")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/class_running_dailies")
             .then((response) => {
                 this.class_daily = response.data.data;
                 console.log(this.class_daily)
@@ -258,7 +258,7 @@ export default{
         save() {
             let id_instructor = this.formClassDaily.id_instructor;
             let status = this.formClassDaily.status;
-            axios.post("http://127.0.0.1:8000/api" + "/class_running_dailies", {
+            axios.post("http://calvin.ppcdeveloper.com/api" + "/class_running_dailies", {
                 id_instructor: id_instructor,
                 status: status,
             }).then((response) => {
@@ -325,7 +325,7 @@ export default{
 
         confirmDelete(){
             this.class_daily.splice(this.id_class_daily_splice, 1)
-            axios.delete("http://127.0.0.1:8000/api/class_running_dailies/" + this.id_class_daily_delete)
+            axios.delete("http://calvin.ppcdeveloper.com/api/class_running_dailies/" + this.id_class_daily_delete)
             this.cancelDelete()
         },
     },

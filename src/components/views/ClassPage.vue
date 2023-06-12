@@ -145,7 +145,7 @@ export default{
     },
     methods: {
         getClass(){
-            axios.get("http://127.0.0.1:8000/api" + "/class_details")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/class_details")
             .then((response) => {
                 this.class_details = response.data.data;
                 console.log(this.class_details)
@@ -156,7 +156,7 @@ export default{
         save() {
             let class_name = this.formClass.class_name;
             let price = this.formClass.price;
-            axios.post("http://127.0.0.1:8000/api" + "/class_details", {
+            axios.post("http://calvin.ppcdeveloper.com/api" + "/class_details", {
                 class_name: class_name,
                 price: price,
             }).then((response) => {
@@ -184,7 +184,7 @@ export default{
         saveEdit(){
             let class_name = this.formEdit.class_name;
             let price = this.formEdit.price;
-            axios.put("http://127.0.0.1:8000/api/class_details/" + this.id_class_edit, {
+            axios.put("http://calvin.ppcdeveloper.com/api/class_details/" + this.id_class_edit, {
                 class_name: class_name,
                 price: price,
             }).then((response) => {
@@ -248,7 +248,7 @@ export default{
 
         confirmDelete(){
             this.class.splice(this.id_class_splice, 1)
-            axios.delete("http://127.0.0.1:8000/api/class_details/" + this.id_class_delete)
+            axios.delete("http://calvin.ppcdeveloper.com/api/class_details/" + this.id_class_delete)
             this.cancelDelete()
         },
     },

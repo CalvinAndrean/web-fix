@@ -165,7 +165,7 @@ export default{
     },
     methods: {
         getCashPromo(){
-            axios.get("http://127.0.0.1:8000/api/cash_promos/")
+            axios.get("http://calvin.ppcdeveloper.com/api/cash_promos/")
             .then((response) => {
                 this.cash_promo = response.data.data;
                 console.log(this.cash_promo);
@@ -174,7 +174,7 @@ export default{
             });
         },
         showReport(item){
-            axios.get("http://127.0.0.1:8000/api/deposit_cash_reports/" + item.id_member)
+            axios.get("http://calvin.ppcdeveloper.com/api/deposit_cash_reports/" + item.id_member)
             .then((response) => {
                 this.deposit_cash = response.data.data;
                 console.log(this.deposit_cash);
@@ -191,7 +191,7 @@ export default{
             let amount_deposit = this.formDepo.amount_deposit;
             let id_pegawai = localStorage.getItem('id');
             let id_cash_promo = this.formDepo.id_cash_promo;
-            axios.post("http://127.0.0.1:8000/api/deposit_cash_reports/" + this.id_member, {
+            axios.post("http://calvin.ppcdeveloper.com/api/deposit_cash_reports/" + this.id_member, {
                 amount_deposit: amount_deposit,
                 id_pegawai: id_pegawai,
                 id_cash_promo: id_cash_promo,
@@ -214,7 +214,7 @@ export default{
                 this.snackbar.message = error.response.data.message;
             });
 
-            // axios.put("http://127.0.0.1:8000/api/members/addDepo/" + this.id_member, {
+            // axios.put("http://calvin.ppcdeveloper.com/api/members/addDepo/" + this.id_member, {
             //     cash_deposit: amount_deposit,
             // }).then((response) => {
             //     console.log(response)
@@ -231,7 +231,7 @@ export default{
             this.dialogDepo = false;
         },
         getMembers(){
-            axios.get("http://127.0.0.1:8000/api" + "/members", {
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/members", {
             }).then((response) => {
                 this.members = response.data.data;
             }).catch((error) => {
@@ -244,7 +244,7 @@ export default{
             this.dialog = true;
         },
         cetakReport(item){
-            axios.get("http://127.0.0.1:8000/api/deposit_cash_reports/printReport/" + item.report_number_deposit_cash, {
+            axios.get("http://calvin.ppcdeveloper.com/api/deposit_cash_reports/printReport/" + item.report_number_deposit_cash, {
             }).then((response) => {
                 console.log(response);
                 console.log('Print report');
@@ -253,7 +253,7 @@ export default{
             });
         },
         getDepositCashReport(){
-            axios.get("http://127.0.0.1:8000/api" + "/deposit_cash_reports")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/deposit_cash_reports")
             .then((response) => {
                 this.deposit_cash = response.data.data;
                 console.log(this.deposit_cash);
@@ -263,7 +263,7 @@ export default{
         },
         save() {
             // let amount_deposit = this.formDepo.amount_deposit;
-            // axios.post("http://127.0.0.1:8000/api" + "/deposit_cash_reports", {
+            // axios.post("http://calvin.ppcdeveloper.com/api" + "/deposit_cash_reports", {
             //     amount_deposit: amount_deposit
             // }).then((response) => {
             //     console.log(response)

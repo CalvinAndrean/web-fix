@@ -275,7 +275,7 @@ export default{
             let fullname = this.formPegawai.fullname;
             let phone_number = this.formPegawai.phone_number;
             let role = this.formPegawai.role;
-            axios.post("http://127.0.0.1:8000/api" + "/pegawais", {
+            axios.post("http://calvin.ppcdeveloper.com/api" + "/pegawais", {
                 email: email,
                 password: password,
                 address: address,
@@ -310,7 +310,7 @@ export default{
         },
         confirmSaveUpdate(){
             let password = this.formEditPassword.password;
-            axios.put("http://127.0.0.1:8000/api/pegawais/updatePassword/" + this.id_pegawai_change, {
+            axios.put("http://calvin.ppcdeveloper.com/api/pegawais/updatePassword/" + this.id_pegawai_change, {
                 password: password,
             }).then((response) => {
                 console.log(response)
@@ -351,7 +351,7 @@ export default{
             let fullname = this.formEdit.fullname;
             let phone_number = this.formEdit.phone_number;
             let role = this.formEdit.role;
-            axios.put("http://127.0.0.1:8000/api/pegawais/" + this.id_pegawai_edit, {
+            axios.put("http://calvin.ppcdeveloper.com/api/pegawais/" + this.id_pegawai_edit, {
                 email: email,
                 password: password,
                 address: address,
@@ -400,7 +400,7 @@ export default{
             this.dialogUpdate = false;
         },
         getPegawais(){
-            axios.get("http://127.0.0.1:8000/api" + "/pegawais")
+            axios.get("http://calvin.ppcdeveloper.com/api" + "/pegawais")
             .then((response) => {
                 this.pegawais = response.data.data;
                 console.log(this.pegawais)
@@ -457,7 +457,7 @@ export default{
 
         confirmDelete(){
             this.pegawais.splice(this.id_pegawai_splice, 1)
-            axios.delete("http://127.0.0.1:8000/api/pegawais/" + this.id_pegawai_delete)
+            axios.delete("http://calvin.ppcdeveloper.com/api/pegawais/" + this.id_pegawai_delete)
             this.cancelDelete()
         },
     },
