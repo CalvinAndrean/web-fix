@@ -177,7 +177,7 @@ export default{
             this.dialog = false;
         },
         getLaporanPendapatanTahunan(){
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan")
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan")
             .then((response) => {
                 this.laporan_pendapatan_tahunan = response.data.data;
                 console.log(this.laporan_pendapatan_tahunan)
@@ -185,7 +185,7 @@ export default{
                 console.log(error)
             });
 
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan/2023")
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan/2023")
             .then((response) => {
                 this.chartData.datasets[0].data = response.data.data.total_perbulan_1;
                 this.data_chart = response.data.data.total_perbulan_1;
@@ -195,7 +195,7 @@ export default{
             });
         },
         getData(item){
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan/" + item.tahun)
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan/" + item.tahun)
             .then((response) => {
                 this.item = item;
                 this.data_laporan = response.data.data;

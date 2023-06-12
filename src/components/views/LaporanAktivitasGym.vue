@@ -103,7 +103,7 @@ export default{
             this.dialog = false;
         },
         getLaporanAktivitasGym(){
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_aktivitas_gym")
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_aktivitas_gym")
             .then((response) => {
                 this.laporan_aktivitas_gym = response.data.data;
                 console.log(this.laporan_pendapatan_tahunan)
@@ -112,7 +112,7 @@ export default{
             });
         },
         getData(item){
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_aktivitas_gym/" + item.id_laporan_aktivitas_gym)
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_aktivitas_gym/" + item.id_laporan_aktivitas_gym)
             .then((response) => {
                 this.data_laporan = response.data.data;
                 console.log(this.data_laporan)

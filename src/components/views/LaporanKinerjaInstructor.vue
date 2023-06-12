@@ -107,7 +107,7 @@ export default{
             this.dialog = false;
         },
         getLaporanKinerjaInstructor(){
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_kinerja_instructor")
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_kinerja_instructor")
             .then((response) => {
                 this.laporan_kinerja_instructor = response.data.data;
                 console.log(this.laporan_pendapatan_tahunan)
@@ -116,7 +116,7 @@ export default{
             });
         },
         getData(item){
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/laporan_kinerja_instructor/" + item.id_laporan_kinerja_instructor)
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_kinerja_instructor/" + item.id_laporan_kinerja_instructor)
             .then((response) => {
                 this.data_laporan = response.data.data;
                 console.log(this.data_laporan)

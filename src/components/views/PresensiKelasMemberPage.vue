@@ -142,7 +142,7 @@ export default{
     },
     methods: {
         getClassRunningDaily(){
-            axios.get("http://calvin.ppcdeveloper.com/api/class_running_dailies/")
+            axios.get("https://calvin.ppcdeveloper.com/api/class_running_dailies/")
             .then((response) => {
                 this.class_running_dailies = response.data.data;
                 console.log(this.class_running_dailies);
@@ -152,7 +152,7 @@ export default{
         },
         cetakReport(item){
             if(item.payment_type == "Paket"){
-                axios.get("http://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositClass/" + item.id_class_booking)
+                axios.get("https://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositClass/" + item.id_class_booking)
                 .then((response) => {
                     this.report = response.data.data;
                     console.log(this.report);
@@ -160,7 +160,7 @@ export default{
                     console.log(error)
                 });
             } else if(item.payment_type == "Cash"){
-                axios.get("http://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositCash/" + item.id_class_booking)
+                axios.get("https://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositCash/" + item.id_class_booking)
                 .then((response) => {
                     this.report = response.data.data;
                     console.log(this.report);
@@ -170,7 +170,7 @@ export default{
             }
         },
         insideClass(item){
-            axios.get("http://calvin.ppcdeveloper.com/api/class_bookings/insideClass/" + item.id_class_running_daily)
+            axios.get("https://calvin.ppcdeveloper.com/api/class_bookings/insideClass/" + item.id_class_running_daily)
             .then((response) => {
                 this.class_bookings = response.data.data;
                 console.log(this.class_bookings);

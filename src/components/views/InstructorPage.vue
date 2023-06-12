@@ -234,7 +234,7 @@ export default{
             let fullname = this.formInstructor.fullname;
             let phone_number = this.formInstructor.phone_number;
             let birth_date = this.formInstructor.birth_date;
-            axios.post("http://calvin.ppcdeveloper.com/api" + "/instructors", {
+            axios.post("https://calvin.ppcdeveloper.com/api" + "/instructors", {
                 email: email,
                 password: password,
                 address: address,
@@ -268,7 +268,7 @@ export default{
             this.dialogSaveAdd = false;
         },
         getInstructors(){
-            axios.get("http://calvin.ppcdeveloper.com/api" + "/instructors")
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/instructors")
             .then((response) => {
                 this.instructors = response.data.data;
                 console.log(this.instructors)
@@ -288,7 +288,7 @@ export default{
             let fullname = this.formEdit.fullname;
             let phone_number = this.formEdit.phone_number;
             let birth_date = this.formEdit.birth_date;
-            axios.put("http://calvin.ppcdeveloper.com/api/instructors/" + this.id_instructor_edit, {
+            axios.put("https://calvin.ppcdeveloper.com/api/instructors/" + this.id_instructor_edit, {
                 email: email,
                 password: password,
                 address: address,
@@ -367,7 +367,7 @@ export default{
 
         confirmDelete(){
             this.instructors.splice(this.id_instructor_splice, 1)
-            axios.delete("http://calvin.ppcdeveloper.com/api/instructors/" + this.id_instructor_delete)
+            axios.delete("https://calvin.ppcdeveloper.com/api/instructors/" + this.id_instructor_delete)
             this.cancelDelete()
         },
     },

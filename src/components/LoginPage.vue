@@ -56,7 +56,7 @@
            const message = ref('')
            // const router = useRouter()
            const validation = ref([])
-           const URL_LINK = "http://calvin.ppcdeveloper.com/api"
+           const URL_LINK = "https://calvin.ppcdeveloper.com/api"
 
            function login(){
                axios.post(`${URL_LINK}/login`, {
