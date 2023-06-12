@@ -67,7 +67,7 @@ const router = new VueRouter({
                     name: "InstructorPage",
                     component: importComponent("views/InstructorPage"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Admin')){
+                        if((localStorage.getItem('role') == 'Admin' || localStorage.getItem('role') == 'MO')){
                             next();
                         } else{
                             next(false);
@@ -165,7 +165,7 @@ const router = new VueRouter({
                     name: "Instructor Absent page",
                     component: importComponent("views/InstructorAbsentPage"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir'){
+                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir' || localStorage.getItem('role') == 'MO'){
                             next();
                         } else{
                             next(false);
@@ -235,7 +235,7 @@ const router = new VueRouter({
                     name: "Laporan Pendapatan Tahunan Page",
                     component: importComponent("views/LaporanPendapatanTahunan"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir'){
+                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir' || localStorage.getItem('role') == 'MO'){
                             next();
                         } else{
                             next(false);
@@ -249,7 +249,7 @@ const router = new VueRouter({
                     name: "Laporan Aktivitas Kelas Page",
                     component: importComponent("views/LaporanAktivitasKelas"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir'){
+                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir' || localStorage.getItem('role') == 'MO'){
                             next();
                         } else{
                             next(false);
@@ -263,7 +263,7 @@ const router = new VueRouter({
                     name: "Laporan Aktivitas Gym Page",
                     component: importComponent("views/LaporanAktivitasGym"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir'){
+                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir' || localStorage.getItem('role') == 'MO'){
                             next();
                         } else{
                             next(false);
@@ -277,7 +277,7 @@ const router = new VueRouter({
                     name: "Laporan Kinerja Instructor Page",
                     component: importComponent("views/LaporanKinerjaInstructor"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir'){
+                        if((localStorage.getItem('role') == 'Admin') || localStorage.getItem('role') == 'Kasir' || localStorage.getItem('role') == 'MO'){
                             next();
                         } else{
                             next(false);

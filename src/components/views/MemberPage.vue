@@ -411,7 +411,7 @@ export default{
                 this.snackbar.show = true;
                 this.snackbar.color = 'success';
                 this.snackbar.icon = 'mdi-check';
-                this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.message = 'Berhasil tambah Member';
                 this.dialogTambah = false;
                 //reload
                 this.getMembers();
@@ -475,19 +475,19 @@ export default{
                 //reset
                 this.formEdit = [];
 
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'success';
-                // this.snackbar.icon = 'mdi-check';
-                // this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil edit Member';
                 // this.dialogTambah = false;
                 //reload
                 this.getMembers();
             }).catch((error) => {
                 console.log(error)
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'error';
-                // this.snackbar.icon = 'mdi-close';
-                // this.snackbar.message = error.response.data.message;
+                this.snackbar.show = true;
+                this.snackbar.color = 'error';
+                this.snackbar.icon = 'mdi-close';
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialogSaveEdit = false;
@@ -500,6 +500,10 @@ export default{
             axios.get("https://calvin.ppcdeveloper.com/api/members/membercard/" + this.id_member_card, {
             }).then((response) => {
                 console.log(response);
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil cetak Membercard';
                 console.log('Print membercard');
             }).catch((error) => {
                 console.log(error)
@@ -512,6 +516,10 @@ export default{
             axios.put("https://calvin.ppcdeveloper.com/api/members/resetPassword/" + this.id_member_change, {
             }).then((response) => {
                 console.log(response)
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil reset password';
                 this.getMembers();
             }).catch((error) => {
                 console.log(error)
@@ -528,6 +536,10 @@ export default{
             axios.put("https://calvin.ppcdeveloper.com/api/members/resetPassword/" + this.id_member_change, {
             }).then((response) => {
                 console.log(response)
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil reset password';
                 this.getMembers();
             }).catch((error) => {
                 console.log(error)
@@ -586,6 +598,10 @@ export default{
             this.delete = this.members.indexOf(item)
             this.id_member_splice = this.members.indexOf(item)
             this.id_member_delete = this.members[this.delete].id_member
+            this.snackbar.show = true;
+            this.snackbar.color = 'success';
+            this.snackbar.icon = 'mdi-check';
+            this.snackbar.message = 'Berhasil deactivate Member';
             this.dialogDelete = true
         },
 

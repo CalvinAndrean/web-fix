@@ -186,19 +186,19 @@ export default{
                 //reset
                 this.formEdit = [];
 
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'success';
-                // this.snackbar.icon = 'mdi-check';
-                // this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil edit Class Running Daily';
                 // this.dialogTambah = false;
                 //reload
                 this.getClassDaily();
             }).catch((error) => {
                 console.log(error)
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'error';
-                // this.snackbar.icon = 'mdi-close';
-                // this.snackbar.message = error.response.data.message;
+                this.snackbar.show = true;
+                this.snackbar.color = 'error';
+                this.snackbar.icon = 'mdi-close';
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialogEdit = false;
@@ -266,19 +266,19 @@ export default{
                 //reset
                 this.formClassDaily = [];
 
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'success';
-                // this.snackbar.icon = 'mdi-check';
-                // this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil edit status';
                 // this.dialogTambah = false;
                 //reload
                 this.getClassDaily();
             }).catch((error) => {
                 console.log(error)
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'error';
-                // this.snackbar.icon = 'mdi-close';
-                // this.snackbar.message = error.response.data.message;
+                this.snackbar.show = true;
+                this.snackbar.color = 'error';
+                this.snackbar.icon = 'mdi-close';
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialog = false;
@@ -326,6 +326,10 @@ export default{
         confirmDelete(){
             this.class_daily.splice(this.id_class_daily_splice, 1)
             axios.delete("https://calvin.ppcdeveloper.com/api/class_running_dailies/" + this.id_class_daily_delete)
+            this.snackbar.show = true;
+            this.snackbar.color = 'success';
+            this.snackbar.icon = 'mdi-check';
+            this.snackbar.message = 'Berhasil delete Class Running Daily';
             this.cancelDelete()
         },
     },

@@ -102,6 +102,16 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+
+        <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="2000" center bottom>
+            <v-icon left>{{ snackbar.icon }}</v-icon>
+            {{ snackbar.message }}
+            <template v-slot:action="{ attrs }">
+                <v-btn icon v-bind="attrs" @click="(snackbar.show = false)">
+                    <v-icon>mdi-close</v-icon>
+                </v-btn>
+            </template>
+        </v-snackbar>
     </v-main>
 </template>
 <script>
@@ -141,6 +151,12 @@ export default{
                 class_name: null,
                 price: null
             }, 
+            snackbar: {
+                show: false,
+                color: '',
+                icon: '',
+                message: '',
+            },
         };
     },
     methods: {
@@ -164,19 +180,19 @@ export default{
                 //reset
                 this.formClass = [];
 
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'success';
-                // this.snackbar.icon = 'mdi-check';
-                // this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil tambah Class Details';
                 // this.dialogTambah = false;
                 //reload
                 this.getClass();
             }).catch((error) => {
                 console.log(error)
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'error';
-                // this.snackbar.icon = 'mdi-close';
-                // this.snackbar.message = error.response.data.message;
+                this.snackbar.show = true;
+                this.snackbar.color = 'error';
+                this.snackbar.icon = 'mdi-close';
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialog = false;
@@ -192,19 +208,19 @@ export default{
                 //reset
                 this.formEdit = [];
 
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'success';
-                // this.snackbar.icon = 'mdi-check';
-                // this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil edit Class Details';
                 // this.dialogTambah = false;
                 //reload
                 this.getClass();
             }).catch((error) => {
                 console.log(error)
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'error';
-                // this.snackbar.icon = 'mdi-close';
-                // this.snackbar.message = error.response.data.message;
+                this.snackbar.show = true;
+                this.snackbar.color = 'error';
+                this.snackbar.icon = 'mdi-close';
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialogEdit = false;
@@ -249,6 +265,10 @@ export default{
         confirmDelete(){
             this.class.splice(this.id_class_splice, 1)
             axios.delete("https://calvin.ppcdeveloper.com/api/class_details/" + this.id_class_delete)
+            this.snackbar.show = true;
+            this.snackbar.color = 'success';
+            this.snackbar.icon = 'mdi-check';
+            this.snackbar.message = 'Berhasil delete Class Details';
             this.cancelDelete()
         },
     },

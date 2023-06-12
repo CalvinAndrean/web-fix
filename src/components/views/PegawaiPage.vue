@@ -207,6 +207,16 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+
+        <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="2000" center bottom>
+            <v-icon left>{{ snackbar.icon }}</v-icon>
+            {{ snackbar.message }}
+            <template v-slot:action="{ attrs }">
+                <v-btn icon v-bind="attrs" @click="(snackbar.show = false)">
+                    <v-icon>mdi-close</v-icon>
+                </v-btn>
+            </template>
+        </v-snackbar>
     </v-main>
 </template>
 <script>
@@ -246,6 +256,12 @@ export default{
                 { text: "Actions", value: "actions", class: "yellow lighten-1" },
             ],
             pegawais: [],
+            snackbar: {
+                show: false,
+                color: '',
+                icon: '',
+                message: '',
+            },
             formPegawai: {
                 email: null,
                 password: null,
@@ -287,19 +303,19 @@ export default{
                 //reset
                 this.formPegawai = [];
 
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'success';
-                // this.snackbar.icon = 'mdi-check';
-                // this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil tambah pegawai';
                 // this.dialogTambah = false;
                 //reload
                 this.getPegawais();
             }).catch((error) => {
                 console.log(error)
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'error';
-                // this.snackbar.icon = 'mdi-close';
-                // this.snackbar.message = error.response.data.message;
+                this.snackbar.show = true;
+                this.snackbar.color = 'error';
+                this.snackbar.icon = 'mdi-close';
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialog = false;
@@ -363,19 +379,19 @@ export default{
                 //reset
                 this.formEdit = [];
 
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'success';
-                // this.snackbar.icon = 'mdi-check';
-                // this.snackbar.message = 'Berhasil tambah';
+                this.snackbar.show = true;
+                this.snackbar.color = 'success';
+                this.snackbar.icon = 'mdi-check';
+                this.snackbar.message = 'Berhasil edit Pegawai';
                 // this.dialogTambah = false;
                 //reload
                 this.getPegawais();
             }).catch((error) => {
                 console.log(error)
-                // this.snackbar.show = true;
-                // this.snackbar.color = 'error';
-                // this.snackbar.icon = 'mdi-close';
-                // this.snackbar.message = error.response.data.message;
+                this.snackbar.show = true;
+                this.snackbar.color = 'error';
+                this.snackbar.icon = 'mdi-close';
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialogEdit = false;
@@ -458,6 +474,10 @@ export default{
         confirmDelete(){
             this.pegawais.splice(this.id_pegawai_splice, 1)
             axios.delete("https://calvin.ppcdeveloper.com/api/pegawais/" + this.id_pegawai_delete)
+            this.snackbar.show = true;
+            this.snackbar.color = 'success';
+            this.snackbar.icon = 'mdi-check';
+            this.snackbar.message = 'Berhasil deactivate Pegawai';
             this.cancelDelete()
         },
     },

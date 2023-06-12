@@ -389,6 +389,10 @@ export default{
         confirmDelete(){
             this.class_running.splice(this.id_class_running_splice, 1)
             axios.delete("https://calvin.ppcdeveloper.com/api/class_runnings/" + this.id_class_running_delete)
+            this.snackbar.show = true;
+            this.snackbar.color = 'success';
+            this.snackbar.icon = 'mdi-check';
+            this.snackbar.message = 'Berhasil delete Class Running Daily';
             this.cancelDelete()
         },
     },
