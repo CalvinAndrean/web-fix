@@ -95,7 +95,7 @@ const router = new VueRouter({
                     name: "ClassRunningPage",
                     component: importComponent("views/ClassRunningPage"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Kasir') || localStorage.getItem('role') == 'MO'){
+                        if((localStorage.getItem('role') == 'Kasir') || localStorage.getItem('role') == 'MO' || localStorage.getItem('role') == 'Admin'){
                             next();
                         } else{
                             next(false);
@@ -109,7 +109,7 @@ const router = new VueRouter({
                     name: "ClassDailyPage",
                     component: importComponent("views/ClassDailyPage"),
                     beforeEnter: (to, from, next) => {
-                        if((localStorage.getItem('role') == 'Kasir') || localStorage.getItem('role') == 'MO'){
+                        if((localStorage.getItem('role') == 'Kasir') || localStorage.getItem('role') == 'MO' || localStorage.getItem('role') == 'Admin'){
                             next();
                         } else{
                             next(false);
