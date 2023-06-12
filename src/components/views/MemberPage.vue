@@ -396,7 +396,7 @@ export default{
             let fullname = this.formMember.fullname;
             let address = this.formMember.address;
             let phone_number = this.formMember.phone_number;
-            axios.post("https://127.0.0.1:8000/api" + "/members", {
+            axios.post("https://calvin.ppcdeveloper.com/api" + "/members", {
                 email: email,
                 password: password,
                 birth_date: birth_date,
@@ -435,7 +435,7 @@ export default{
         },
         makeMemberCard(item){
             this.id_member_card = item.id_member;
-            axios.get("https://127.0.0.1:8000/api/members/" + item.id_member, {
+            axios.get("https://calvin.ppcdeveloper.com/api/members/" + item.id_member, {
             }).then((response) => {
                 this.memberCard.id_member = response.data.data.id_member;
                 this.memberCard.email = response.data.data.email;
@@ -463,7 +463,7 @@ export default{
             let fullname = this.formEdit.fullname;
             let address = this.formEdit.address;
             let phone_number = this.formEdit.phone_number;
-            axios.put("https://127.0.0.1:8000/api/members/" + this.id_member_edit, {
+            axios.put("https://calvin.ppcdeveloper.com/api/members/" + this.id_member_edit, {
                 email: email,
                 password: password,
                 birth_date: birth_date,
@@ -497,7 +497,7 @@ export default{
             this.dialogMemberCard = false;
         },
         printMemberCard(){
-            axios.get("https://127.0.0.1:8000/api/members/membercard/" + this.id_member_card, {
+            axios.get("https://calvin.ppcdeveloper.com/api/members/membercard/" + this.id_member_card, {
             }).then((response) => {
                 console.log(response);
                 console.log('Print membercard');
@@ -509,7 +509,7 @@ export default{
             this.change = this.members.indexOf(item);
             this.id_member_change = this.members[this.change].id_member
             this.dialogChange = true
-            axios.put("https://127.0.0.1:8000/api/members/resetPassword/" + this.id_member_change, {
+            axios.put("https://calvin.ppcdeveloper.com/api/members/resetPassword/" + this.id_member_change, {
             }).then((response) => {
                 console.log(response)
                 this.getMembers();
@@ -525,7 +525,7 @@ export default{
         },
 
         confirmChange(){
-            axios.put("https://127.0.0.1:8000/api/members/resetPassword/" + this.id_member_change, {
+            axios.put("https://calvin.ppcdeveloper.com/api/members/resetPassword/" + this.id_member_change, {
             }).then((response) => {
                 console.log(response)
                 this.getMembers();
@@ -535,7 +535,7 @@ export default{
             this.cancelChange()
         },
         getMembers(){
-            axios.get("https://127.0.0.1:8000/api" + "/members")
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/members")
             .then((response) => {
                 this.members = response.data.data;
                 console.log(this.members)
@@ -596,7 +596,7 @@ export default{
 
         confirmDelete(){
             this.members.splice(this.id_member_splice, 1)
-            axios.delete("https://127.0.0.1:8000/api/members/" + this.id_member_delete)
+            axios.delete("https://calvin.ppcdeveloper.com/api/members/" + this.id_member_delete)
             this.cancelDelete()
         },
     },
