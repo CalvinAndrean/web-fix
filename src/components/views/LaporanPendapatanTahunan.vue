@@ -63,13 +63,13 @@
                     </tr>
                 </table>
 
-                <!-- <Bar
+                <Bar
                 id="my-chart-id"
                 :options="chartOptions"
                 :data="chartData"
-                /> -->
+                />
 
-                <canvas ref="chart"></canvas>
+                <!-- <canvas ref="chart"></canvas> -->
                 <v-card-actions>
                     <v-btn color="red darken-2" text @click="closeDialog">Close</v-btn>
                 </v-card-actions>
@@ -90,15 +90,15 @@
 <script>
 // import { reactive, ref } from "vue";
 import axios from "axios";
-// import { Bar } from 'vue-chartjs'
-// import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-// ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+import { Bar } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 import Chart from 'chart.js'
 
 // import { useRoute } from 'vue2-helpers/vue-router';
 export default{
     name: "BarChart",
-    // components: { Bar },
+    components: { Bar },
     data() {
         return {
             search: null,
