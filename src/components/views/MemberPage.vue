@@ -420,7 +420,7 @@ export default{
                 this.snackbar.show = true;
                 this.snackbar.color = 'error';
                 this.snackbar.icon = 'mdi-close';
-                this.snackbar.message = error.response.data.message.fullname;
+                this.snackbar.message = error.response.data.message;
             });
             this.resetForm();
             this.dialog = false;
