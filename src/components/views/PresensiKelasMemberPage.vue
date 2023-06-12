@@ -153,23 +153,23 @@ export default{
         cetakReport(item){
             console.log(item);
             if(item.payment_type == "Paket"){
-                axios.get("https://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositClass/" + item.id_class_booking)
-                .then((response) => {
-                    console.log(item.id_class_booking);
-                    this.report = response.data.data;
-                    console.log(this.report);
-                }).catch((error) => {
-                    console.log(error)
-                });
+                axios.get("https://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositClass/" + item.id_class_booking);
+                // .then((response) => {
+                //     console.log(item.id_class_booking);
+                //     this.report = response.data.data;
+                //     console.log(this.report);
+                // }).catch((error) => {
+                //     console.log(error)
+                // });
             } else if(item.payment_type == "Cash"){
-                axios.get("https://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositCash/" + item.id_class_booking)
-                .then((response) => {
-                    console.log(item.id_class_booking);
-                    this.report = response.data.data;
-                    console.log(this.report);
-                }).catch((error) => {
-                    console.log(error)
-                });
+                axios.get("https://calvin.ppcdeveloper.com/api/class_bookings/printReportDepositCash/" + item.id_class_booking);
+                // .then((response) => {
+                //     console.log(item.id_class_booking);
+                //     this.report = response.data.data;
+                //     console.log(this.report);
+                // }).catch((error) => {
+                //     console.log(error)
+                // });
             }
         },
         insideClass(item){
