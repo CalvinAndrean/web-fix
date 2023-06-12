@@ -1,65 +1,61 @@
 <template>
     <div class="dashboard">
-        <div class="sidebar">
-            <div class="sidebar-scroll">
-                <v-navigation-drawer class="fullheight" width="256" v-model="drawer"
-                absolute temporary color="grey lighten-5">
-                    <v-list-item>
-                        <v-list-item-content>
-                            <v-list-item-title class="title"> GoFit </v-list-item-title>
-                            <v-list-item-subtitle>Gym to the core</v-list-item-subtitle>
-                        </v-list-item-content>
-                    </v-list-item>
+        <v-navigation-drawer class="fullheight" width="256" v-model="drawer"
+        absolute temporary color="grey lighten-5">
+            <v-list-item>
+                <v-list-item-content>
+                    <v-list-item-title class="title"> GoFit </v-list-item-title>
+                    <v-list-item-subtitle>Gym to the core</v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
 
-                    <v-divider></v-divider>
+            <v-divider></v-divider>
 
-                    <v-list dense nav v-if="admin">
-                        <v-list-item
-                            v-for="item in adminMenu"
-                            :key="item.title"
-                            link
-                            color="light-blue-darken-4"
-                            tag="router-link"
-                            :to="item.to"
-                        >
-                            <v-list-item-content>
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list>
+            <v-list dense nav v-if="admin">
+                <v-list-item
+                    v-for="item in adminMenu"
+                    :key="item.title"
+                    link
+                    color="light-blue-darken-4"
+                    tag="router-link"
+                    :to="item.to"
+                >
+                    <v-list-item-content>
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
 
-                    <v-list dense nav v-if="kasir">
-                        <v-list-item
-                            v-for="item in kasirMenu"
-                            :key="item.title"
-                            link
-                            color="light-blue-darken-4"
-                            tag="router-link"
-                            :to="item.to"
-                        >
-                            <v-list-item-content>
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list>
+            <v-list dense nav v-if="kasir">
+                <v-list-item
+                    v-for="item in kasirMenu"
+                    :key="item.title"
+                    link
+                    color="light-blue-darken-4"
+                    tag="router-link"
+                    :to="item.to"
+                >
+                    <v-list-item-content>
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
 
-                    <v-list dense nav v-if="mo">
-                        <v-list-item
-                            v-for="item in moMenu"
-                            :key="item.title"
-                            link
-                            color="light-blue-darken-4"
-                            tag="router-link"
-                            :to="item.to"
-                        >
-                            <v-list-item-content>
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list>
-                </v-navigation-drawer>
-            </div>
-        </div>
+            <v-list dense nav v-if="mo">
+                <v-list-item
+                    v-for="item in moMenu"
+                    :key="item.title"
+                    link
+                    color="light-blue-darken-4"
+                    tag="router-link"
+                    :to="item.to"
+                >
+                    <v-list-item-content>
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
 
         <v-app-bar color="blue lighten-3" dark>
             <v-app-bar-nav-icon
