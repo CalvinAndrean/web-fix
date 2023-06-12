@@ -11,7 +11,7 @@
 
             <v-divider></v-divider>
 
-            <v-list dense nav v-if="admin">
+            <v-list dense nav v-if="admin" class="scrollable-list">
                 <v-list-item
                     v-for="item in adminMenu"
                     :key="item.title"
@@ -26,7 +26,7 @@
                 </v-list-item>
             </v-list>
 
-            <v-list dense nav v-if="kasir">
+            <v-list dense nav v-if="kasir" class="scrollable-list">
                 <v-list-item
                     v-for="item in kasirMenu"
                     :key="item.title"
@@ -41,7 +41,7 @@
                 </v-list-item>
             </v-list>
 
-            <v-list dense nav v-if="mo">
+            <v-list dense nav v-if="mo" class="scrollable-list">
                 <v-list-item
                     v-for="item in moMenu"
                     :key="item.title"
@@ -143,12 +143,8 @@
   min-height: 100vh !important;
 }
 
-.sidebar {
-  height: 100vh;
+.scrollable-list {
+  max-height: 100%;
   overflow-y: auto;
-}
-
-.sidebar-scroll {
-  height: 100%;
 }
 </style>

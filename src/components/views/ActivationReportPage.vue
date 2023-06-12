@@ -106,6 +106,16 @@
                 </v-card-actions>
         </v-card>
         </v-dialog>
+
+        <v-snackbar v-model="snackbar.show" :color="snackbar.color" timeout="2000" center bottom>
+            <v-icon left>{{ snackbar.icon }}</v-icon>
+            {{ snackbar.message }}
+            <template v-slot:action="{ attrs }">
+                <v-btn icon v-bind="attrs" @click="(snackbar.show = false)">
+                    <v-icon>mdi-close</v-icon>
+                </v-btn>
+            </template>
+        </v-snackbar>
     </v-main>
 </template>
 <script>
@@ -162,6 +172,12 @@ export default{
                 datetime: null,
                 expired_date: null,
             },
+            snackbar: {
+                show: false,
+                color: '',
+                icon: '',
+                message: '',
+            },
         };
     },
     methods: {
@@ -200,19 +216,19 @@ export default{
                     console.log(response)
                     this.formActivation = [];
 
-                    // this.snackbar.show = true;
-                    // this.snackbar.color = 'success';
-                    // this.snackbar.icon = 'mdi-check';
-                    // this.snackbar.message = 'Berhasil tambah';
+                    this.snackbar.show = true;
+                    this.snackbar.color = 'success';
+                    this.snackbar.icon = 'mdi-check';
+                    this.snackbar.message = 'Berhasil aktivasi member';
                     // this.dialogTambah = false;
                     //reload
                     this.getActivationReport();
                 }).catch((error) => {
                     console.log(error)
-                    // this.snackbar.show = true;
-                    // this.snackbar.color = 'error';
-                    // this.snackbar.icon = 'mdi-close';
-                    // this.snackbar.message = error.response.data.message;
+                    this.snackbar.show = true;
+                    this.snackbar.color = 'error';
+                    this.snackbar.icon = 'mdi-close';
+                    this.snackbar.message = error.response.data.message;
                 });
 
                 axios.put("https://calvin.ppcdeveloper.com/api/members/changeExpired/" + this.id_member, {

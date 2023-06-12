@@ -158,6 +158,7 @@ export default{
                 message: '',
             },
             cash_promo: [],
+            testing: '',
             formDepo: {
                 amount_deposit: null,
             },
@@ -244,6 +245,7 @@ export default{
             this.dialog = true;
         },
         cetakReport(item){
+            this.testing = item.report_number_deposit_cash;
             axios.get("https://calvin.ppcdeveloper.com/api/deposit_cash_reports/printReport/" + item.report_number_deposit_cash, {
             }).then((response) => {
                 console.log(response);
