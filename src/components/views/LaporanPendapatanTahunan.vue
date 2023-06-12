@@ -185,14 +185,14 @@ export default{
                 console.log(error)
             });
 
-            // axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan/2023")
-            // .then((response) => {
-            //     this.chartData.datasets[0].data = response.data.data.total_perbulan_1;
-            //     this.data_chart = response.data.data.total_perbulan_1;
-            //     console.log(this.chartData.datasets[0].data)
-            // }).catch((error) => {
-            //     console.log(error)
-            // });
+            axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan/2023")
+            .then((response) => {
+                this.chartData.datasets[0].data = response.data.data.total_perbulan_1;
+                this.data_chart = response.data.data.total_perbulan_1;
+                console.log(this.chartData.datasets[0].data)
+            }).catch((error) => {
+                console.log(error)
+            });
         },
         getData(item){
             axios.get("https://calvin.ppcdeveloper.com/api" + "/laporan_pendapatan_tahunan/" + item.tahun)
