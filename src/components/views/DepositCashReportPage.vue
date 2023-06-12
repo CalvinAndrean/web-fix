@@ -165,7 +165,7 @@ export default{
     },
     methods: {
         getCashPromo(){
-            axios.get("https://calvin.ppcdeveloper.com/api/cash_promos/")
+            axios.get("https://calvin.ppcdeveloper.com/api/cash_promos")
             .then((response) => {
                 this.cash_promo = response.data.data;
                 console.log(this.cash_promo);

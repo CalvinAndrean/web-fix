@@ -240,7 +240,7 @@ export default{
             });
         },
         getClassPromo(){
-            axios.get("https://calvin.ppcdeveloper.com/api/class_promos/")
+            axios.get("https://calvin.ppcdeveloper.com/api/class_promos")
             .then((response) => {
                 this.class_promo = response.data.data;
                 console.log(this.class_promo);
