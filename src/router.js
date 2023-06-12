@@ -13,21 +13,24 @@ const router = new VueRouter({
         {
             path: "/",
             meta: {title: 'Dashboard'},
-            name:"Login",
+            name:"LoginTest",
+            component: importComponent("LoginPage"),
+            // children:[
+                
+            // ],
+        },
+
+        {
+            path: "/root",
+            meta: {title: 'Dashboard Layout'},
+            name: "Root",
             component: importComponent("DashboardLayout"),
             children:[
                 {
-                    path: "/",
+                    path: "/dashboard",
                     meta: {title: 'Dashboard Index'},
-                    name: "Root",
+                    name: "dashboardIndex",
                     component: importComponent("DashboardIndex"),
-                },
-
-                {
-                    path: "/login",
-                    meta: {title: 'Login'},
-                    name: "Login",
-                    component: importComponent("LoginPage"),
                 },
 
                 {
@@ -43,7 +46,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/pegawai",
                     meta: {title: 'Pegawai Page'},
@@ -57,7 +60,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/instructor",
                     meta: {title: 'Instructor Page'},
@@ -71,7 +74,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/class",
                     meta: {title: 'Class Page'},
@@ -85,7 +88,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/class_running",
                     meta: {title: 'Class Running Page'},
@@ -99,7 +102,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/class_daily",
                     meta: {title: 'Class Daily Page'},
@@ -113,7 +116,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/activation_report",
                     meta: {title: 'Activation Report Page'},
@@ -127,7 +130,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/deposit_cash",
                     meta: {title: 'Deposit Cash Page'},
@@ -141,7 +144,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/deposit_class_report",
                     meta: {title: 'Deposit Class Report Page'},
@@ -155,7 +158,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/instructor_absent",
                     meta: {title: 'Instructor Absent Page'},
@@ -169,7 +172,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/special_feature",
                     meta: {title: 'Special Feature Page'},
@@ -183,7 +186,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 // {
                 //     path: "/class_bookings",
                 //     meta: {title: 'Class Booking Page'},
@@ -197,7 +200,7 @@ const router = new VueRouter({
                 //         }
                 //     }
                 // },
-
+        
                 {
                     path: "/presensi_kelas_member",
                     meta: {title: 'Presensi Kelas Member Page'},
@@ -211,7 +214,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/gym_booking",
                     meta: {title: 'Gym Booking Page'},
@@ -225,7 +228,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/laporan_pendapatan_tahunan",
                     meta: {title: 'Laporan Pendapatan Tahunan Page'},
@@ -239,7 +242,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/laporan_aktivitas_kelas",
                     meta: {title: 'Laporan Aktivitas Kelas Page'},
@@ -253,7 +256,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/laporan_aktivitas_gym",
                     meta: {title: 'Laporan Aktivitas Gym Page'},
@@ -267,7 +270,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/laporan_kinerja_instructor",
                     meta: {title: 'Laporan Kinerja Instructor Page'},
@@ -281,7 +284,7 @@ const router = new VueRouter({
                         }
                     }
                 },
-
+        
                 {
                     path: "/bar",
                     meta: {title: 'Bar Page'},
@@ -295,7 +298,14 @@ const router = new VueRouter({
                         }
                     }
                 },
-            ],
+            ]
+        },
+
+        {
+            path: "/login",
+            meta: {title: 'Login'},
+            name: "Login",
+            component: importComponent("LoginPage"),
         },
     ],
 });
