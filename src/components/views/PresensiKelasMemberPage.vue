@@ -142,7 +142,7 @@ export default{
     },
     methods: {
         getClassRunningDaily(){
-            axios.get("https://calvin.ppcdeveloper.com/api/class_running_dailies/")
+            axios.get("https://calvin.ppcdeveloper.com/api/class_running_dailies")
             .then((response) => {
                 this.class_running_dailies = response.data.data;
                 console.log(this.class_running_dailies);
@@ -185,7 +185,7 @@ export default{
     },
     mounted(){
         this.getClassRunningDaily();
-        this.getMembers();
+        // this.getMembers();
     }
 };
 </script>
